@@ -1,0 +1,29 @@
+library(rvest)
+library(dplyr)
+library(stringr)
+
+xp = '//*[@id="reports_adp"]/table'
+adp = tibble()
+for (year in 2011:2021) {
+  print(year)
+  url = read_html(paste0("https://www76.myfantasyleague.com/",year,"/reports?R=ADP&POS=Coach+QB+TMQB+TMRB+RB+FB+WR+TMWR+TE+TMTE+WR+TE+RB+WR+TE+KR+PK+TMPK+PN+TMPN+Def+ST+Off&PERIOD=ALL&CUTOFF=5&FCOUNT=12&ROOKIES=0&INJURED=1&IS_PPR=2&IS_KEEPER=N&IS_MOCK=1&PAGE=ALL"))
+  tab = url %>% html_element(xpath = xp) %>% html_table()
+  tab$season = year
+  adp = adp %>% bind_rows(tab)
+}
+
+adp = adp[grep("^Page:", adp$Rank, invert = T),]
+
+name_clean = as.data.frame(str_split_fixed(adp$Player, ", ", n = 2))
+name_clean$Pos = str_extract(name_clean$V2, "[A-z]{2,3}$")
+name_clean$V2 = gsub(" [A-z]{2,3}$", "", name_clean$V2)
+name_clean$Team = str_extract(name_clean$V2, "[A-Z]{3}$")
+name_clean$V2 = gsub(" [A-Z]{3}$", "", name_clean$V2)
+name_clean$V2 = gsub(" FA[\\*]?", "", name_clean$V2)
+names(name_clean)[1:2] = c("First","Last")
+adp = adp %>% bind_cols(name_clean)
+adp = adp %>% mutate(Name = paste(Last, First), 
+                     Pos = toupper(Pos))
+
+
+
