@@ -1,1 +1,1 @@
-# Captain Mode Optimization Model
+Captain Mode Optimization Model
