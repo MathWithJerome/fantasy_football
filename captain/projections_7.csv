@@ -1,0 +1,43 @@
+"Name","ID","Pos","Roster Position","Team","Points","Salary"
+"Kyler Murray",24851258,"QB","CPT","ARI",32.34,16800
+"Alvin Kamara",24851259,"RB","CPT","NO",25.365,15900
+"DeAndre Hopkins",24851260,"WR","CPT","ARI",21.45,15300
+"Andy Dalton",24851263,"QB","CPT","NO",19.8,14100
+"Eno Benjamin",24851266,"RB","CPT","ARI",22.32,12300
+"Chris Olave",24851267,"WR","CPT","NO",21.03,11100
+"Taysom Hill",24851268,"QB","CPT","NO",6.675,10800
+"Zach Ertz",24851269,"TE","CPT","ARI",12.255,10500
+"Tre'Quan Smith",24851270,"WR","CPT","NO",9.225,9300
+"Rondale Moore",24851273,"WR","CPT","ARI",15.69,8700
+"Robbie Anderson",24851274,"WR","CPT","ARI",4.74,8400
+"Mark Ingram II",24851275,"RB","CPT","NO",10.635,7800
+"Marquez Callaway",24851277,"WR","CPT","NO",12.495,7200
+"Wil Lutz",24851281,"K","CPT","NO",11.61,6000
+"Greg Dortch",24851283,"WR","CPT","ARI",3.315,4800
+"Juwan Johnson",24851284,"TE","CPT","NO",8.805,4500
+"A.J. Green",24851285,"WR","CPT","ARI",7.83,3900
+"Rashid Shaheed",24851286,"WR","CPT","NO",4.32,3000
+"Keaontay Ingram",24851291,"RB","CPT","ARI",6.63,600
+"Kyler Murray",24851316,"QB","FLEX","ARI",21.56,11200
+"Alvin Kamara",24851317,"RB","FLEX","NO",16.91,10600
+"DeAndre Hopkins",24851318,"WR","FLEX","ARI",14.3,10200
+"Andy Dalton",24851321,"QB","FLEX","NO",13.2,9400
+"Eno Benjamin",24851324,"RB","FLEX","ARI",14.88,8200
+"Chris Olave",24851325,"WR","FLEX","NO",14.02,7400
+"Taysom Hill",24851326,"QB","FLEX","NO",4.45,7200
+"Zach Ertz",24851327,"TE","FLEX","ARI",8.17,7000
+"Tre'Quan Smith",24851328,"WR","FLEX","NO",6.15,6200
+"Rondale Moore",24851331,"WR","FLEX","ARI",10.46,5800
+"Robbie Anderson",24851332,"WR","FLEX","ARI",3.16,5600
+"Mark Ingram II",24851333,"RB","FLEX","NO",7.09,5200
+"Marquez Callaway",24851335,"WR","FLEX","NO",8.33,4800
+"Wil Lutz",24851339,"K","FLEX","NO",7.74,4000
+"Greg Dortch",24851341,"WR","FLEX","ARI",2.21,3200
+"Juwan Johnson",24851342,"TE","FLEX","NO",5.87,3000
+"A.J. Green",24851343,"WR","FLEX","ARI",5.22,2600
+"Rashid Shaheed",24851344,"WR","FLEX","NO",2.88,2000
+"Keaontay Ingram",24851349,"RB","FLEX","ARI",4.42,400
+"Cardinals",24851278,"DST","CPT","ARI",10.95,6600
+"Cardinals",24851336,"DST","FLEX","ARI",7.3,4400
+"Saints",24851282,"DST","CPT","NO",9.66,5100
+"Saints",24851340,"DST","FLEX","NO",6.44,3400
