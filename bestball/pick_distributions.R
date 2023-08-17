@@ -12,14 +12,21 @@ picks = 0:319
 draft.pdf = data.frame(picks = picks)
 
 pdf.m = matrix(nrow = 320, ncol = 320)
+cdf.m = matrix(nrow = 320, ncol = 320)
 
 for (p in picks) {
   pdf.m[p+1,] = round(dpois(picks, p+1),5)
+  cdf.m[p+1,] = round(1-ppois(picks, p+1),5)
 }
 
 # pdf.m.s = apply(pdf.m, 2, function(x) {round(x/sum(x),5)})
 pdf.m.m = as_tibble(pdf.m) %>%
   mutate(Rank = 1:nrow(pdf.m),.before = V1) %>%
+  pivot_longer(cols = -Rank, names_to = "pick") %>%
+  mutate(pick = as.numeric(gsub("V","",pick)))
+
+cdf.m.m = bind_cols(rep(1,320)) %>% as_tibble(cdf.m) %>%
+  mutate(Rank = 1:nrow(cdf.m),.before = V1) %>%
   pivot_longer(cols = -Rank, names_to = "pick") %>%
   mutate(pick = as.numeric(gsub("V","",pick)))
 
@@ -43,16 +50,18 @@ for (i in 1:n) {
 df.v2 = cbind(data.frame(Rank = 1:n, as.data.frame(pdf.m.v2))) %>% 
   pivot_longer(cols = 2:last_col(), names_to = "pick") %>% 
   mutate(pick = as.numeric(gsub("V","",pick)))
-  
-                
+
+
 #ggplot(data = df.v2 %>% filter(player %in% paste0("player",seq(1,220,20)), pick <= 340), aes(x = pick, y = value, color = player)) +
 #  geom_point(show.legend = F) + geom_line(show.legend = F) 
 
+## create matrix of pick/round combinations and reverse even rows for snake 
 m.picks = matrix(data = 1:240, nrow = 20, ncol = 12, byrow = T, dimnames = list(paste0("round",1:20), paste0("pick",1:12)))
 for (i in seq(2,20,2)) {
   m.picks[i,] = rev(m.picks[i,])    
 }
 
+## select a specific draft position
 p = data.frame(round = names(m.picks[,6]), pick = m.picks[,6])
 
 df.v2.p = df.v2 %>% filter(pick %in% p$pick, value > 0.1) %>% left_join(p) %>% 
